@@ -15,7 +15,7 @@ function QuestionItem({ question, onDeleteQuestion }) {
       method: "DELETE",
     })
       .then((resp) => resp.json())
-      .then(onDeleteQuestion(question));
+      .then(() => onDeleteQuestion(question.id));
   }
 
   function handleChange(e) {

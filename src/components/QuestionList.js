@@ -3,7 +3,6 @@ import QuestionItem from "./QuestionItem";
 
 function QuestionList() {
   const [questions, setQuestions] = useState([]);
-  const [deleteId, setDeleteId] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch("http://localhost:4000/questions");
@@ -13,9 +12,9 @@ function QuestionList() {
     fetchData();
   }, []);
 
-  function onDeleteQuestion(deletedQuestion) {
+  function onDeleteQuestion(deletedQuestionId) {
     setQuestions(
-      questions.filter((question) => question.id !== deletedQuestion.id)
+      questions.filter((question) => question.id !== deletedQuestionId)
     );
   }
 
